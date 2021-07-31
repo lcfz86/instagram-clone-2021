@@ -1,0 +1,9 @@
+<section class='signel-post-edit'>
+  <%= form_for @post do |f| %>
+    <%= render 'shared/error_message', object: @post %>
+    <%= f.file_field :photo %>
+    <%= f.label :caption %>
+    <%= f.text_field :caption %>
+    <%= f.submit 'Update' %>
+  <% end %>
+</section>

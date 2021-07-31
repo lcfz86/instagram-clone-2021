@@ -1,0 +1,21 @@
+<section class='single-post-show'>
+  <% if @post.photo.attached? %>
+    <%= image_tag @post.photo, style: 'width: 200px;' %>
+  <% end %>
+  <%= @post.caption %>
+
+  <div class='comment-form'>
+    <%= form_with(model: [@post, @comment]) do |f| %>
+      <%= f.text_field :content, placeholder: 'Write your comment here.' %>
+      <%= f.submit 'Comment' %>
+    <% end %>
+  </div>
+
+  <div class='post-comments'>
+    <% @comments.each do |comment| %>
+      <%= comment.user.username %>
+      <br>
+      <p>Comment: <%= comment.content %></p>
+    <% end %>
+  </div>
+</section>
